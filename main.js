@@ -12,43 +12,70 @@ let gastoEnergetico;
 
 
     do {
-        genero = prompt("genero: ingrese 1 para masculino o 2 para femenino"); 
+        genero = parseInt(prompt("genero: ingrese 1 para masculino o 2 para femenino"));
+
+        if(isNaN(genero)){
+            alert("Solo se aceptan numeros en este campo");
+        }
+
     } while (genero != 1 && genero != 2);
 
-    if(genero == 1){
-        genero = "masculino";
-    }else if(genero == 2){
-        genero = "femenino";
-    }
-
+    switch (genero) {
+        case 1:
+          genero = "masculino";
+          break;
+        case 2:
+          genero = "femenino";
+          break;
+        default:
+          break;
+      }
+      
     console.log(`Genero: ${genero}`);
 
     do {
         peso = parseInt(prompt("Indique su peso en kg (utilizando el punto si es necesario y sin la unidad de medida kg)"));
 
-    } while (peso > 200);
+        if(isNaN(peso)){
+            alert("Solo se aceptan numeros en este campo")
+        }
+
+    } while (peso > 200 || isNaN(peso));
 
     console.log(`Peso: ${peso} kg`);
 
     do {
-        altura = prompt("Indique su altura en cm (sin puntos ni comas y sin la unidad de medida cm)");
-    } while (altura > 210 );
+        altura = prompt("Indique su altura en cm (usando el punto si es necesario y sin la unidad de medida cm)");
+
+        if(isNaN(altura)){
+            alert("Solo se aceptan numeros en este campo");
+        }
+
+
+    } while (altura > 210 || isNaN(altura));
     
     console.log(`Altura: ${altura} cm`);
 
 
     do {
         edad = prompt("Indique su edad"); 
-    } while (edad > 100);
+
+        if(isNaN(edad)){
+            alert("Solo se aceptan numeros en este campo");
+        }
+    } while (edad > 100 || isNaN(edad));
 
     console.log(`Edad: ${edad} años`);
     
     do {
         gastoEnergetico = parseInt(prompt("Indique la opción de su gasto enegetico:\n 1: Poco o ningún ejercico durante la semana\n 2: Ejercicio ligero(1-3 sesiones por semana)\n 3: Ejercicio moderado (3-5 sesiones por semana)\n 4: Ejercicio fuerte (6-7 sesiones por semana)\n 5: Ejercicio muy fuerte (atletas de alto rendimiento)"));
 
-        
+        if(isNaN(gastoEnergetico)){
+            alert("Solo se aceptan numeros en este campo");
+        }
 
-    } while (gastoEnergetico > 5 || gastoEnergetico < 1);
+
+    } while (gastoEnergetico > 5 || gastoEnergetico < 1 || isNaN(gastoEnergetico));
 
     switch (gastoEnergetico) {
         case 1:
